@@ -152,7 +152,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\ConverterReplace\ConverterStringFormat.csproj">
+    <ProjectReference Include="..\ConverterStringFormat\ConverterStringFormat.csproj">
       <Project>{D523B446-3D9A-47E5-B6DB-33D7747247AC}</Project>
       <Name>ConverterStringFormat</Name>
     </ProjectReference>

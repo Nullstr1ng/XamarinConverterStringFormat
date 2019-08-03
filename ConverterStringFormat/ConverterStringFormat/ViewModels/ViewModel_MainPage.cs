@@ -36,12 +36,25 @@ namespace ConverterStringFormat.ViewModels
                 }
             }
         }
+
+        private bool _isViewSmall = true;
+        public bool IsViewSmall
+        {
+            get { return _isViewSmall; }
+            set
+            {
+                if(this._isViewSmall != value)
+                {
+                    this._isViewSmall = value;
+                    NotifyPropertyChanged(nameof(IsViewSmall));
+                }
+            }
+        }
         #endregion
 
         #region commands
         public ICommand Command_Refresh { get; set; }
-        // move this command methods
-
+        public ICommand Command_ChangeView { get; set; }
         #endregion
 
         #region ctors
@@ -56,12 +69,18 @@ namespace ConverterStringFormat.ViewModels
         {
             RefreshRSS();
         }
+
+        void Command_ChangeView_Click()
+        {
+            this.IsViewSmall = !this.IsViewSmall;
+        }
         #endregion
 
         #region methods
         void InitCommands()
         {
             if (Command_Refresh == null) Command_Refresh = new RelayCommand(Command_Refresh_Click);
+            if (Command_ChangeView == null) Command_ChangeView = new RelayCommand(Command_ChangeView_Click);
         }
 
         void DesignData()
@@ -83,18 +102,21 @@ namespace ConverterStringFormat.ViewModels
         {
             this.IsBusy = true;
             Items.Clear();
-
-            // use RSS feed for the mean time
+            
             var rssfeed = await SimpleWebClient.Instance.RequestAsync<DTO_RSS>("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.planetxamarin.com%2Ffeed");
 
-            foreach (var feed in rssfeed.items)
+            if (rssfeed != null && rssfeed.items != null)
             {
-                feed.title = RemoveChars(feed.title);
-                feed.description = feed.description.Substring(0, 50);
-                feed.description = RemoveChars(feed.description);
+                foreach (var feed in rssfeed.items)
+                {
+                    feed.title = RemoveChars(feed.title);
+                    feed.description = feed.description.Substring(0, 50);
+                    feed.description = RemoveChars(feed.description);
 
-                Items.Add(feed);
+                    Items.Add(feed);
+                }
             }
+
             this.IsBusy = false;
         }
 
