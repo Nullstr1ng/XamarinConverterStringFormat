@@ -53,15 +53,15 @@
                         </Grid.RowDefinitions>
 
                         <Grid Grid.Column="0" HeightRequest="80" WidthRequest="80" Margin="0,0,10,0">
-                            <Image Source="{Binding thumbnail}" BackgroundColor="#0F000000" Aspect="AspectFill" WidthRequest="80" HeightRequest="80" VerticalOptions="Start" HorizontalOptions="Center" Margin="0,5,0,0" />
+                            <Image Source="{Binding Thumbnail}" BackgroundColor="#0F000000" Aspect="AspectFill" WidthRequest="80" HeightRequest="80" VerticalOptions="Start" HorizontalOptions="Center" Margin="0,5,0,0" />
                         </Grid>
 
                         <StackLayout Grid.Column="1">
                             <Label>
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span Text="{Binding ., Converter={StaticResource StringFormat}, ConverterParameter='• {title}'}" FontAttributes="Bold" FontSize="15" />
-                                        <Span Text="{Binding ., Converter={StaticResource StringFormat}, ConverterParameter='&#13;&#10;{description} - Read more...&#10;by {author} | {pubDate}'}" />
+                                        <Span Text="{Binding ., Converter={StaticResource StringFormat}, ConverterParameter='• {Title}'}" FontAttributes="Bold" FontSize="15" />
+                                        <Span Text="{Binding ., Converter={StaticResource StringFormat}, ConverterParameter='&#13;&#10;{Description} - Read more...&#10;by {Author} | {PubDate}'}" />
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
@@ -84,15 +84,15 @@
                         </Grid.RowDefinitions>
 
                         <Grid Grid.Row="0" HeightRequest="80" Margin="0,0,10,0">
-                            <Image Source="{Binding thumbnail}" BackgroundColor="#0F000000" Aspect="AspectFill" HeightRequest="80" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,5,0,0" />
+                            <Image Source="{Binding Thumbnail}" BackgroundColor="#0F000000" Aspect="AspectFill" HeightRequest="80" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,5,0,0" />
                         </Grid>
 
                         <StackLayout Grid.Row="1">
                             <Label>
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span Text="{Binding ., Converter={StaticResource StringFormat}, ConverterParameter='{title}'}" FontAttributes="Bold" FontSize="15" />
-                                        <Span Text="{Binding ., Converter={StaticResource StringFormat}, ConverterParameter='&#13;&#10;{description} - Read more...&#10;by {author} | {pubDate}'}" />
+                                        <Span Text="{Binding ., Converter={StaticResource StringFormat}, ConverterParameter='{Title}'}" FontAttributes="Bold" FontSize="15" />
+                                        <Span Text="{Binding ., Converter={StaticResource StringFormat}, ConverterParameter='&#13;&#10;{Description} - Read more...&#10;by {Author} | {PubDate}'}" />
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>

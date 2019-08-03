@@ -109,9 +109,9 @@ namespace ConverterStringFormat.ViewModels
             {
                 foreach (var feed in rssfeed.items)
                 {
-                    feed.title = RemoveChars(feed.title);
-                    feed.description = feed.description.Substring(0, 50);
-                    feed.description = RemoveChars(feed.description);
+                    feed.Title = RemoveChars(feed.Title);
+                    feed.Description = feed.Description.Substring(0, 50);
+                    feed.Description = RemoveChars(feed.Description);
 
                     Items.Add(feed);
                 }

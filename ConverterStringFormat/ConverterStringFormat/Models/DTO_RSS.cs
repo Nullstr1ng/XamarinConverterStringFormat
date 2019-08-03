@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -31,12 +32,23 @@ namespace ConverterStringFormat.Models
     public class DTO_RSS_Body : Model_Base
     {
         #region properties
-        public string title { get; set; } = string.Empty;
-        public string description { get; set; } = string.Empty;
-        public string author { get; set; } = string.Empty;
-        public string content { get; set; } = string.Empty;
-        public DateTime pubDate { get; set; } = DateTime.Now;
-        public string thumbnail { get; set; } = string.Empty;
+        [JsonProperty("title")]
+        public string Title { get; set; } = string.Empty;
+
+        [JsonProperty("description")]
+        public string Description { get; set; } = string.Empty;
+
+        [JsonProperty("author")]
+        public string Author { get; set; } = string.Empty;
+
+        [JsonProperty("content")]
+        public string Content { get; set; } = string.Empty;
+
+        [JsonProperty("pubDate")]
+        public DateTime PubDate { get; set; } = DateTime.Now;
+
+        [JsonProperty("thumbnail")]
+        public string Thumbnail { get; set; } = string.Empty;
         #endregion
     }
 }
