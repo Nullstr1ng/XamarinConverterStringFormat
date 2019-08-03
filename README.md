@@ -1,4 +1,4 @@
-# XamarinConverterStringFormat
+# Xamarin Converter_StringFormat
 Xamarin - Bring string interpolation method to XAML!
 
 full blog here
