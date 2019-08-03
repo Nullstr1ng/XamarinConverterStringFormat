@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ConverterStringFormat.MainPage"
+             xmlns:conv="clr-namespace:ConverterStringFormat.Converter"
+             BindingContext="{Binding Source={StaticResource MainPageVM}}"
+             >
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <conv:Converter_StringFormat x:Key="StringFormat" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Label Text="Simple RSS Feed" FontAttributes="Bold" FontSize="20" />
+
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Items}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,0,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Column="0" HeightRequest="80" WidthRequest="80" Margin="0,0,10,0">
+                            <Image Source="{Binding thumbnail}" Aspect="AspectFill" WidthRequest="80" HeightRequest="80" VerticalOptions="Start" HorizontalOptions="Center" Margin="0,5,0,0" />
+                        </Grid>
+
+                        <StackLayout Grid.Column="1">
+                            <Label Text="{Binding ., Converter={StaticResource StringFormat}, ConverterParameter='{title}'}" FontAttributes="Bold" FontSize="15" />
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding ., Converter={StaticResource StringFormat}, ConverterParameter='{description} - Read more...&#10;{author} | {pubDate}'}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+
+                        <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" HeightRequest="1" BackgroundColor="#ffafafaf" HorizontalOptions="FillAndExpand" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Grid.Row="2" Text="Refresh" Command="{Binding Command_Refresh}" />
+
+        <ActivityIndicator Grid.Row="0" Grid.RowSpan="3" IsEnabled="True" IsRunning="True" IsVisible="{Binding IsBusy}" VerticalOptions="Center" HorizontalOptions="Center" />
+    </Grid>
+
+</ContentPage>

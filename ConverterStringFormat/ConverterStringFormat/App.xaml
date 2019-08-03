@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ConverterStringFormat.App"
+             xmlns:vm="clr-namespace:ConverterStringFormat.ViewModels"
+             >
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <vm:ViewModel_MainPage x:Key="MainPageVM" />
+
+            <Style TargetType="StackLayout">
+                <Setter Property="Spacing" Value="0" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
