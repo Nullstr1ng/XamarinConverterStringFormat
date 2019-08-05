@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Globalization;
 using Xamarin.Forms;
 
-namespace ConverterStringFormat.Converter
+namespace JaraIO.Converter
 {
-    public class Converter_StringFormat : IValueConverter
+    public class Converter_StringInterpolate : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

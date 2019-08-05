@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Jayson Ragasa</Authors>
+    <Product>StringInterpolation in XAML</Product>
+    <Description>Use string interpolation in XAML for Xamarin</Description>
+    <PackageId>StringInterpolationInXAML</PackageId>
+    <Company>JaraIO</Company>
+    <Copyright>(c) Jayson Ragasa - JaraIO 2019</Copyright>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseUrl>https://github.com/Nullstr1ng/XamarinConverterStringFormat/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/Nullstr1ng/XamarinConverterStringFormat</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Nullstr1ng/XamarinConverterStringFormat</RepositoryUrl>
+    <RepositoryType>github</RepositoryType>
+    <PackageTags>string,xaml</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.618606" />
+  </ItemGroup>
+
+</Project>

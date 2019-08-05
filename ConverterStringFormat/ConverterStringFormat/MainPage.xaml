@@ -2,13 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ConverterStringFormat.MainPage"
-             xmlns:conv="clr-namespace:ConverterStringFormat.Converter"
              BindingContext="{Binding Source={StaticResource MainPageVM}}"
+             xmlns:conv="clr-namespace:JaraIO.Converter;assembly=JaraIO"
              >
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <conv:Converter_StringFormat x:Key="StringFormat" />
+            <conv:Converter_StringInterpolate x:Key="StringInterpolate" />
             <conv:Converter_ReverseBoolean x:Key="ReverseBoolean" />
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -60,8 +60,8 @@
                             <Label>
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span Text="{Binding ., Converter={StaticResource StringFormat}, ConverterParameter='• {Title}'}" FontAttributes="Bold" FontSize="15" />
-                                        <Span Text="{Binding ., Converter={StaticResource StringFormat}, ConverterParameter='&#13;&#10;{Description} - Read more...&#10;by {Author} | {PubDate}'}" />
+                                        <Span Text="{Binding ., Converter={StaticResource StringInterpolate}, ConverterParameter='• {Title}'}" FontAttributes="Bold" FontSize="15" />
+                                        <Span Text="{Binding ., Converter={StaticResource StringInterpolate}, ConverterParameter='&#13;&#10;{Description} - Read more...&#10;by {Author} | {PubDate}'}" />
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
@@ -91,8 +91,8 @@
                             <Label>
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span Text="{Binding ., Converter={StaticResource StringFormat}, ConverterParameter='{Title}'}" FontAttributes="Bold" FontSize="15" />
-                                        <Span Text="{Binding ., Converter={StaticResource StringFormat}, ConverterParameter='&#13;&#10;{Description} - Read more...&#10;by {Author} | {PubDate}'}" />
+                                        <Span Text="{Binding ., Converter={StaticResource StringInterpolate}, ConverterParameter='{Title}'}" FontAttributes="Bold" FontSize="15" />
+                                        <Span Text="{Binding ., Converter={StaticResource StringInterpolate}, ConverterParameter='&#13;&#10;{Description} - Read more...&#10;by {Author} | {PubDate}'}" />
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>

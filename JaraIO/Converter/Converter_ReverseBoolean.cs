@@ -2,7 +2,7 @@
 using System.Globalization;
 using Xamarin.Forms;
 
-namespace ConverterStringFormat.Converter
+namespace JaraIO.Converter
 {
     public class Converter_ReverseBoolean : IValueConverter
     {
