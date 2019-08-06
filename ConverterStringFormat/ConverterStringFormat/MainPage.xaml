@@ -61,7 +61,7 @@
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <Span Text="{Binding ., Converter={StaticResource StringInterpolate}, ConverterParameter='• {Title}'}" FontAttributes="Bold" FontSize="15" />
-                                        <Span Text="{Binding ., Converter={StaticResource StringInterpolate}, ConverterParameter='&#13;&#10;{Description} - Read more...&#10;by {Author} | {PubDate}'}" />
+                                        <Span Text="{Binding ., Converter={StaticResource StringInterpolate}, ConverterParameter='&#13;&#10;{Description} - Read {Title} more...&#10;by {Author} | {PubDate}'}" />
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>

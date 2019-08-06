@@ -1,7 +1,7 @@
 ﻿using ConverterStringFormat.Command;
 using ConverterStringFormat.Helper;
 using ConverterStringFormat.Models;
-
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -110,7 +110,7 @@ namespace ConverterStringFormat.ViewModels
                 foreach (var feed in rssfeed.items)
                 {
                     feed.Title = RemoveChars(feed.Title);
-                    feed.Description = feed.Description.Substring(0, 50);
+                    feed.Description = string.IsNullOrEmpty(feed.Description) ? string.Empty : feed.Description.Substring(0, 50);
                     feed.Description = RemoveChars(feed.Description);
 
                     Items.Add(feed);
@@ -122,12 +122,15 @@ namespace ConverterStringFormat.ViewModels
 
         string RemoveChars(string text, string toRemove = "\r,\n,<p>")
         {
+            if(string.IsNullOrEmpty(text) == false) return text;
+
             string result = text;
             string[] toremove = toRemove.Split(',');
             for (int i = 0; i <= toremove.Length - 1; i++)
             {
                 result = result.Replace(toremove[i], null);
             }
+
             return result;
         }
         #endregion
